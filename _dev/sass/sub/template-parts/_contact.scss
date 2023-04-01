@@ -1,0 +1,166 @@
+.contact {
+  margin-block: 9rem;
+
+  .contact__heading {
+    @include scale-fontsize($fontsize: 5rem);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 6rem;
+  }
+
+  .contact__form {
+    position: relative;
+
+    .wpcf7-form-control-wrap {
+      position: unset;
+    }
+
+    &-group {
+      margin-bottom: 4rem;
+
+      &--submit {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &-input {
+      @include scale-fontsize($fontsize: 2rem);
+      padding: 1rem 0.5rem;
+      width: 100%;
+      line-height: 1.4;
+      border: none;
+      border-bottom: 1px solid #000;
+
+      &:focus {
+        outline-color: $primary-color;
+      }
+
+      &--message {
+        resize: none;
+        height: calc(4.2em + 2.2rem);
+      }
+    }
+
+    &-acceptance {
+      display: none;
+
+      & ~ span {
+        display: block;
+        position: relative;
+        color: #707070;
+        font-size: 1.2;
+        line-height: 1.2;
+        padding-left: 3rem;
+        cursor: pointer;
+
+        &::before {
+          @include pseudo;
+          top: 0;
+          left: 0;
+          width: 2em;
+          height: 2em;
+          aspect-ratio: 1;
+          border: 1px solid #000;
+          transform: translateY(-25%);
+        }
+        &::after {
+          @include pseudo;
+          top: 0.5em;
+          left: 1em;
+          width: 0.6rem;
+          height: 1rem;
+          border-bottom: 2px solid;
+          border-right: 2px solid;
+          border-color: #fff;
+          transform: translate(-45%, -65%) rotate(45deg);
+        }
+      }
+      &:checked ~ span {
+        &::before {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+  // Invalide/valid messages
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 5px 25px;
+  }
+
+  .wpcf7-spinner {
+    background-color: transparent;
+    border-radius: unset;
+    width: 3rem;
+    height: 3rem;
+
+    &::before {
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border-block: 3px solid $primary-color;
+      border-inline: 3px solid transparent;
+      transform-origin: unset;
+      transform: translate(-50%, -50%);
+      animation: spinning 2000ms linear infinite;
+    }
+    &::after {
+      @include pseudo;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      height: 70%;
+      border-block: 3px solid transparent;
+      border-inline: 3px solid #000;
+      border-radius: 50%;
+      transform-origin: unset;
+      transform: translate(-50%, -50%);
+      animation: spinning 2000ms linear infinite reverse;
+    }
+  }
+
+  .wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output, .wpcf7 form.payment-required .wpcf7-response-output {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 1.4rem;
+    background-color: rgb(253, 191, 55);
+    max-width: 100%;
+    margin: 0;
+    margin-inline: 20px;
+    border: none;
+  }
+
+  .wpcf7 form.sent .wpcf7-response-output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: none;
+    background-color: #fff;
+    animation: fadeOut 3000ms ease-in forwards;
+    pointer-events: none;
+  }
+}
+
+@keyframes spinning {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,31 @@
+body {
+  font-family: $font-text;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.btn {
+  @include scale-fontsize($fontsize: 1.4rem, $scale: 0.2);
+  display: inline-block;
+  --clr-txt-border: $text-color;
+  color: var(--clr-txt-border);
+  text-transform: uppercase;
+  width: fit-content;
+  padding: 0.8em 1.6em;
+  border: 1px solid;
+  border-color: var(--clr-txt-border);
+  transition: all $transition-regular;
+  cursor: pointer;
+
+  &--primary {
+    --clr-txt-border: #707070;
+    background-color: transparent;
+
+    &:hover {
+      color: #fff;
+      background-color: var(--clr-txt-border);
+    }
+  }
+}

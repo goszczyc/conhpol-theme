@@ -1,0 +1,132 @@
+.materials {
+  margin-top: 4.5rem;
+  max-width: 1323px;
+
+  &__image {
+    display: flex;
+    align-items: center;
+    grid-column: 1 / span 8;
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  &__text {
+    grid-column: 10/-2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      @include scale-fontsize($fontsize: 3rem);
+      text-transform: uppercase;
+      line-height: 1.4;
+      margin-bottom: 1em;
+    }
+
+    p {
+      @include scale-fontsize($fontsize: 1.8rem);
+      line-height: 1.4;
+      margin-bottom: 1.5em;
+    }
+  }
+
+  &__opportunities {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    z-index: 10001;
+
+    &-exit {
+      position: absolute;
+      top: 1rem;
+      right: 4rem;
+      width: 4rem;
+      height: 4rem;
+      aspect-ratio: 1;
+      background: none;
+      border: none;
+      transition: transform $transition-regular;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        @include pseudo;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 2px;
+        background-color: #000;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &--reverse {
+    .materials__image {
+      grid-column: -8/-1;
+      grid-row: 1;
+    }
+    .materials__text {
+      grid-column: 2/span 4;
+      grid-row: 1;
+    }
+  }
+
+  @media (max-width: 992px) {
+    &__image {
+      grid-column: 1/span 7;
+    }
+    &__text {
+      grid-column: 8/-2;
+    }
+
+    &--reverse {
+      .materials__image {
+        grid-column: 8/-1;
+      }
+
+      .materials__text {
+        grid-column: 2/span 6;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__image {
+      grid-column: 1/-1;
+      margin-bottom: 4.5rem;
+    }
+    &__text {
+      grid-column: 2/-2;
+      text-align: center;
+      align-items: center;
+      margin-bottom: 4.5rem;
+    }
+
+    &--reverse {
+      .materials__image {
+        grid-column: 1/-1;
+        grid-row: 1;
+      }
+      .materials__text {
+        grid-column: 2/-2;
+        grid-row: 2;
+      }
+    }
+  }
+}

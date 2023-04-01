@@ -1,0 +1,36 @@
+@import "sub/fonts";
+@import "sub/variables";
+@import "sub/mixins";
+@import "sub/layout";
+@import "sub/normalize";
+@import "sub/universal";
+
+// Template parts:
+@import "sub/template-parts/header";
+@import "sub/template-parts/video-banner";
+@import "sub/template-parts/team";
+@import "sub/template-parts/blog";
+@import "sub/template-parts/cites";
+@import "sub/template-parts/footer";
+@import "sub/template-parts/map";
+@import "sub/template-parts/search";
+@import "sub/template-parts/contact";
+
+// Compontents
+@import "sub/components/title-txt";
+@import "sub/components/slider";
+@import "sub/components/title-banner";
+@import "sub/components/video";
+@import "sub/components/photos";
+@import "sub/components/certyficates";
+@import "sub/components/materials";
+@import "sub/components/technology";
+@import "sub/components/collections";
+@import "sub/components/one-image";
+@import "sub/components/text-center";
+
+// Plugins
+@import "sub/plugins/slick";
+
+// Cookies:
+@import "sub/cookies/divante.cookies";

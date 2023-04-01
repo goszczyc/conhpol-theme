@@ -1,0 +1,31 @@
+.search-result {
+  margin-block: 9rem;
+  max-width: 1000px;
+
+  &__response {
+    display: block;
+    padding: 2rem 0.5rem;
+    font-size: 3rem;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    list-style: none;
+    transition: background $transition-regular;
+    padding: 0.5rem;
+    
+    &:nth-child(even) {
+      background-color: rgb(243, 243, 243);
+    }
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+  &__list-link {
+    display: block;
+  }
+}
